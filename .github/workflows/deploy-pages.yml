@@ -56,6 +56,19 @@ jobs:
         env:
           GITHUB_PAGES: "true"
         run: npm run build
+      - name: Inspect generated static files
+        shell: bash
+        run: |
+          echo "============================================"
+          echo "Generated dist/client file structure"
+          echo "============================================"
+          find dist/client -maxdepth 5 -type f -print | sort
+
+          echo ""
+          echo "============================================"
+          echo "Generated HTML files"
+          echo "============================================"
+          find dist/client -type f -name "*.html" -print | sort
 
       - name: Verify generated GitHub Pages output
         run: npm run verify:pages-output
