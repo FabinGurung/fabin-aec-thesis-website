@@ -1,0 +1,262 @@
+[
+  {
+    "key": "Eastman2011_BIMhandbook",
+    "type": "book",
+    "author": "Eastman, Chuck and Teicholz, Paul and Sacks, Rafael and Liston, Kathleen",
+    "title": "BIM Handbook: A Guide to Building Information Modeling for Owners, Managers, Designers, Engineers, and Contractors",
+    "source": "John Wiley & Sons",
+    "year": "2011",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Laakso2012_IFC",
+    "type": "article",
+    "author": "Laakso, Mikael and Kiviniemi, Arto",
+    "title": "The IFC Standard: A Review of History, Development, and Standardization",
+    "source": "Journal of Information Technology in Construction",
+    "year": "2012",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Chaulagain2015_RiskMapping",
+    "type": "article",
+    "author": "Chaulagain, Hemchandra and Rodrigues, Hugo and Silva, Vitor and Spacone, Enrico and Varum, Humberto",
+    "title": "Seismic Risk Assessment and Hazard Mapping in Nepal",
+    "source": "Natural Hazards",
+    "year": "2015",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Brzev2017_Vulnerability",
+    "type": "article",
+    "author": "Brzev, Svetlana and Pandey, Bharat and Maharjan, Dhirendra Kumar and Ventura, Carlos",
+    "title": "Seismic Vulnerability Assessment of Low-Rise Reinforced Concrete Buildings Affected by the 2015 Gorkha, Nepal, Earthquake",
+    "source": "Earthquake Spectra",
+    "year": "2017",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Codd1970_RelationalModel",
+    "type": "article",
+    "author": "Codd, Edgar F.",
+    "title": "A Relational Model of Data for Large Shared Data Banks",
+    "source": "Communications of the ACM",
+    "year": "1970",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Date2003_DatabaseSystems",
+    "type": "book",
+    "author": "Date, Christopher J.",
+    "title": "An Introduction to Database Systems",
+    "source": "Pearson Education",
+    "year": "2003",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Ahmed2019_SafeCodes",
+    "type": "article",
+    "author": "Ahmed, Iftekhar and Gajendran, Thayaparan and Brewer, Graham and Maund, Karen and von Meding, Jason and Kabir, Humayun and Faruk, Mohammad and Shrestha, H. D. and Sitoula, N.",
+    "title": "Opportunities and Challenges of Compliance to Safe Building Codes: Bangladesh and Nepal",
+    "source": "APN Science Bulletin",
+    "year": "2019",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Panta2025_PMCCompliance",
+    "type": "article",
+    "author": "Pant, Shisab and Subedi, Ajaya",
+    "title": "Compliance Status of Nepal National Building Code (NBC: 105) within Pokhara Metropolitan City",
+    "source": "Pokhara Engineering College Journal",
+    "year": "2025",
+    "doi": "10.3126/pecj.v2i1.76829",
+    "note": ""
+  },
+  {
+    "key": "Shrestha2021_NBC105",
+    "type": "article",
+    "author": "Shrestha, J. K. and Paudel, N. and Koirala, B. and Giri, B. R. and Lamichhane, A.",
+    "title": "Impact of Revised Code NBC 105 on Assessment and Design of Low Rise Reinforced Concrete Buildings in Nepal",
+    "source": "Journal of the Institute of Engineering",
+    "year": "2021",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Rogov2023_Postgres14",
+    "type": "book",
+    "author": "Rogov, Egor",
+    "title": "PostgreSQL 14 Internals",
+    "source": "Postgres Professional",
+    "year": "2023",
+    "doi": "",
+    "note": "[Online]. Available: https://postgrespro.com/community/books/internals. Accessed: Jun. 9, 2026"
+  },
+  {
+    "key": "Momjian2001_PostgresConcepts",
+    "type": "book",
+    "author": "Momjian, Bruce",
+    "title": "PostgreSQL: Introduction and Concepts",
+    "source": "Addison-Wesley Professional",
+    "year": "2001",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Eastman2009_RuleChecking",
+    "type": "article",
+    "author": "Eastman, Charles and Lee, Jae-Min and Jeong, Yeon-Suk and Lee, Jin-Kook",
+    "title": "Automatic Rule-Based Checking of Building Designs",
+    "source": "Automation in Construction",
+    "year": "2009",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Solihin2015_RuleClassification",
+    "type": "article",
+    "author": "Solihin, W. and Eastman, C.",
+    "title": "Classification of Rules for Automated BIM Rule Checking Development",
+    "source": "Automation in Construction",
+    "year": "2015",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Lee2023_HighLevel",
+    "type": "article",
+    "author": "Lee, Jin-Kook and Cho, Kyunghyun and Choi, Hyeokjin and Choi, Soohyung and Kim, Sumin and Cha, Seung Hyun",
+    "title": "High-Level Implementable Methods for Automated Building Code Compliance Checking",
+    "source": "Developments in the Built Environment",
+    "year": "2023",
+    "doi": "10.1016/j.dibe.2023.100174",
+    "note": ""
+  },
+  {
+    "key": "Madireddy2025_LLMRevit",
+    "type": "article",
+    "author": "Madireddy, Soumya and Gao, Lu and Din, Zia and Kim, Kinam and Senouci, Ahmed and Han, Zhe and Zhang, Yunpeng",
+    "title": "Large Language Model-Driven Code Compliance Checking in Building Information Modeling",
+    "source": "Electronics",
+    "year": "2025",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Preidel2016_VisualProgramming",
+    "type": "article",
+    "author": "Preidel, Cornelius and Borrmann, Andre",
+    "title": "Towards Code Compliance Checking on the Basis of a Visual Programming Language",
+    "source": "Journal of Information Technology in Construction",
+    "year": "2016",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Isikdag2009_GeoBIM",
+    "type": "incollection",
+    "author": "Isikdag, Umit and Zlatanova, Sisi",
+    "title": "Towards Defining a Framework for Automatic Generation of Buildings in CityGML Using Building Information Models",
+    "source": "3D Geo-Information Sciences",
+    "year": "2009",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Deng2016_BIGIS",
+    "type": "article",
+    "author": "Deng, Yichuan and Cheng, Jack C. P. and Anumba, Chimay J.",
+    "title": "A Framework for 3D Traffic Noise Mapping Using Data from BIM and GIS Integration",
+    "source": "Structure and Infrastructure Engineering",
+    "year": "2016",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Singh2023_BIMNLP",
+    "type": "inproceedings",
+    "author": "Singh, A. K. and Pal, A. and Kumar, P. and Lin, J. J. and Hsieh, S.-H.",
+    "title": "Prospects of Integrating BIM and NLP for Automatic Construction Schedule Management",
+    "source": "Proceedings of the 40th International Symposium on Automation and Robotics in Construction",
+    "year": "2023",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "AlSinan2024_Blueprint",
+    "type": "article",
+    "author": "Al-Sinan, M. A. and Bubshait, A. A. and Aljaroudi, Z.",
+    "title": "Generation of Construction Scheduling through Machine Learning and BIM: A Blueprint",
+    "source": "Buildings",
+    "year": "2024",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Wang2024_SpatialPlanning",
+    "type": "article",
+    "author": "Wang, L. and Li, J. and Ye, Q. and Li, Y. and Feng, A.",
+    "title": "Automatic Planning Method of Construction Schedule under Multi-Dimensional Spatial Resource Constraints",
+    "source": "Buildings",
+    "year": "2024",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Li2023_RebarModeling",
+    "type": "article",
+    "author": "Li, S. and Shi, Y. and Hu, J. and Li, S. and Li, H. and Chen, A. and Xie, W.",
+    "title": "Application of BIM to Rebar Modeling of a Variable Section Column",
+    "source": "Buildings",
+    "year": "2023",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "DUDBC1994_NBC105",
+    "type": "techreport",
+    "author": "Department of Urban Development and Building Construction",
+    "title": "Seismic Design of Buildings in Nepal",
+    "source": "Ministry of Physical Planning and Works, Government of Nepal",
+    "year": "1994",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "DUDBC2019_NBC105Draft",
+    "type": "techreport",
+    "author": "Department of Urban Development and Building Construction",
+    "title": "Seismic Design of Buildings in Nepal",
+    "source": "Ministry of Urban Development, Government of Nepal",
+    "year": "2020",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Malla2024_Comparative",
+    "type": "article",
+    "author": "Malla, S. and Alagirisamy, M. and Dangol, P. and Giri, O. P.",
+    "title": "Comparative Analysis of an Apartment Building Using Seismic Codes NBC 105:1994 and NBC 105:2020: A Case Study",
+    "source": "Engineering, Technology & Applied Science Research",
+    "year": "2024",
+    "doi": "",
+    "note": ""
+  },
+  {
+    "key": "Poudel2025_BCJAssessment",
+    "type": "article",
+    "author": "Poudel, D. J. and Chaulagain, H.",
+    "title": "Assessment of Behaviour of Reinforced Concrete Beam-Column Joints: A Comparison of NBC 105:2020 and International Standards",
+    "source": "Innovative Infrastructure Solutions",
+    "year": "2025",
+    "doi": "",
+    "note": ""
+  }
+]

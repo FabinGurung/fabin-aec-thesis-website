@@ -1,0 +1,135 @@
+{
+  "metadata": {
+    "title": "Design and Implementation of a Normalized Relational Database System Integrating BIM and GIS for Automated Building Design and Construction Workflow Automation in Nepal",
+    "student": "Fabin Gurung",
+    "registration_number": "2022-1-90-0005",
+    "degree": "Master of Science in Structural Engineering",
+    "school": "School of Engineering",
+    "faculty": "Faculty of Science and Technology",
+    "university": "Pokhara University",
+    "country": "Nepal",
+    "supervisor": "Prof. Dr. Govind Prasad Lamichhane",
+    "co_supervisor": "Prof. Dr. Yagyanath Rimal",
+    "submission_date": "June, 2026"
+  },
+  "abstract_paragraphs": [
+    "The Architecture, Engineering, and Construction sector in Nepal still depends heavily on fragmented digital workflows, where architectural drawings, structural calculations, quantity estimates, method statements, specifications, and site-related records are commonly prepared in separate software tools or spreadsheets. This separation creates repeated data entry, inconsistent project information, weak traceability, and difficulty in reusing the same building data across different stages of design and construction.",
+    "This study addresses the need for an integrated data-centered workflow by designing and implementing a normalized relational database system that connects BIM and GIS concepts with automated building design and construction workflow processes. PostgreSQL/Supabase was used as the database development platform. The prototype was developed around a shared element and dimension hub, where project points, building elements, dimensional parameters, units, and element relationships were stored in normalized relational tables. The same shared data were then reused for structural analysis, architecture line-view generation, concrete quantity estimation, construction work-item linkage, method statement linkage, specification linkage, reporting, and validation.",
+    "A database-driven Moment Distribution Method module was implemented using a two-span continuous beam example to demonstrate structural calculation automation. The system calculated fixed end moments, stiffness, distribution factors, joint balancing, carry-over moments, final end moments, reactions, and BMD/SFD points. The prototype also generated architectural line-view data and concrete quantity outputs from the same beam dimensions. The results show that a normalized relational database can serve as a single source of truth for connecting design, analysis, estimation, and construction documentation workflows. The study concludes that such a database-centered approach can improve consistency, reduce repeated manual work, and provide a foundation for future BIM-GIS-enabled construction automation in Nepal."
+  ],
+  "keywords": [
+    "BIM",
+    "GIS",
+    "Relational Database",
+    "PostgreSQL",
+    "Construction Workflow Automation"
+  ],
+  "problem_statement": "Statement of the Problem In the Nepalese AEC sector, building project information is commonly distributed across multiple disconnected documents and software tools. Architectural drawings, structural calculations, quantity estimates, method statements, specifications, and site records are often prepared by different professionals using different formats. This fragmented system makes it difficult to maintain consistency across the complete project lifecycle. A major problem arises when the same information is required in several project stages. A member dimension may be used in architectural layout, structural analysis, quantity calculation, and construction documentation. In a manual workflow, this dimension is often copied from one document to another. If the design changes, each copy must be updated separately. This creates a high possibility of mismatch between drawings, calculations, quantities, and site documents. The lack of a single source of truth also limits automation. Even when BIM or GIS tools are available, the absence of a normalized database structure makes it difficult to connect building objects, spatial data, design parameters, construction quantities, and documentation rules in a consistent way. Without a relational backbone, BIM data may remain isolated in modeling software, GIS data may remain isolated in spatial files, and estimation or structural data may remain locked in spreadsheets or calculation sheets. In the context of Nepal, this issue is more critical because building code implementation, seismic design requirements, municipal approval processes, and construction quality control require consistent and reliable information. Studies on building-code compliance and seismic vulnerability in Nepal indicate that safe construction practice depends not only on the existence of standards but also on their consistent implementation in design and construction workflows . Manual and fragmented information management makes this consistency difficult to achieve. Therefore, the problem addressed by this research is the absence of a normalized, integrated, and reusable database framework capable of connecting BIM, GIS, structural analysis, estimation, method statements, and specifications within a single AEC workflow. This research attempts to address the problem by designing and implementing a PostgreSQL/Supabase-based prototype in which shared project elements and dimensions are stored once and reused across multiple modules.",
+  "research_questions": [
+    "How can a normalized relational database schema be designed to manage shared AEC project information for building design and construction workflow automation?",
+    "How can project elements, coordinates, dimensions, and parameters be stored as a single source of truth and reused across architecture, structural analysis, estimation, method statements, and specifications?",
+    "How can BIM and GIS concepts be integrated with a relational database framework to support automated building design and site-based decision-making in the Nepalese construction context?",
+    "How can a database-driven structural calculation module be implemented and traced within the same relational database environment?",
+    "How can the developed prototype be validated in terms of data consistency, calculation traceability, quantity accuracy, and workflow integration potential?"
+  ],
+  "general_objective": "To design and implement a normalized relational database system integrating BIM and GIS concepts for automated building design and construction workflow automation in Nepal.",
+  "specific_objectives": [
+    "To design a normalized PostgreSQL/Supabase relational database schema for managing AEC project lifecycle data.",
+    "To develop a shared project element and dimension hub capable of storing building elements, coordinates, parameters, and units as reusable data.",
+    "To implement a database-driven structural analysis prototype using the Moment Distribution Method as a proof of structural calculation automation.",
+    "To demonstrate the reuse of shared element data for architectural line representation and concrete quantity estimation.",
+    "To link project elements with construction work items, method statement templates, and specification clauses.",
+    "To develop reporting and health-check views for validating calculation traceability, joint equilibrium, duplicate-data control, and workflow consistency.",
+    "To evaluate the prototype within the Pokhara-based Nepalese AEC context using consistency checks, quantity verification, and comparison with conventional manual workflow logic."
+  ],
+  "research_design": "Prototype-based database design and implementation research using PostgreSQL/Supabase and a controlled two-span beam example.",
+  "methodology_stages": [
+    "identification of the fragmentation problem in conventional AEC workflows;",
+    "definition of shared project data requirements;",
+    "design of normalized relational tables for project elements, points, parameters, loads, calculation steps, estimation rules, and documentation links;",
+    "implementation of the schema and calculation views in PostgreSQL/Supabase;",
+    "testing of the prototype using a sample two-span beam system;",
+    "generation of structural, architectural, estimation, and documentation outputs from the same shared data source; and",
+    "validation of the results using query outputs, duplicate checks, convergence checks, and health-check views."
+  ],
+  "implemented_modules": [
+    "Shared project element and dimension hub",
+    "Database-driven Moment Distribution Method structural calculation",
+    "Architecture line-view generation",
+    "Concrete quantity estimation",
+    "Construction work-item linkage",
+    "Method statement linkage",
+    "Specification linkage",
+    "Reporting and validation views",
+    "BMD and SFD point generation"
+  ],
+  "verified_database_scope": {
+    "base_tables": 52,
+    "views": 24,
+    "materialized_views": 0,
+    "sample_project_code": "SAMPLE_MDM_001",
+    "sample_project_name": "Sample Moment Distribution Project",
+    "sample_solve_case": "Sample MDM Solve Case"
+  },
+  "verified_results": {
+    "beam_AB": {
+      "length_m": 6.0,
+      "breadth_m": 0.23,
+      "depth_m": 0.45,
+      "ei_kN_m2": 25000.0,
+      "udl_kN_per_m": 10.0,
+      "near_final_moment_kN_m": -37.5,
+      "far_final_moment_kN_m": 15.0,
+      "near_reaction_kN": 38.75,
+      "far_reaction_kN": 21.25,
+      "concrete_quantity_m3": 0.621
+    },
+    "beam_BC": {
+      "length_m": 6.0,
+      "breadth_m": 0.23,
+      "depth_m": 0.45,
+      "ei_kN_m2": 25000.0,
+      "udl_kN_per_m": 0.0,
+      "near_final_moment_kN_m": -15.0,
+      "far_final_moment_kN_m": -7.5,
+      "near_reaction_kN": 1.25,
+      "far_reaction_kN": -1.25,
+      "concrete_quantity_m3": 0.621
+    },
+    "joint_B_equilibrium_kN_m": 0.0,
+    "maximum_continuous_joint_imbalance": 0.0,
+    "duplicate_stiffness_locations": 0,
+    "is_converged": true,
+    "is_solve_healthy": true
+  },
+  "total_concrete_quantity_m3": 1.242,
+  "conclusion_summary": [
+    "The prototype demonstrates that normalized relational data can act as a central backbone for selected AEC workflows.",
+    "Common project data were stored once and reused for structural analysis, architecture representation, estimation, and construction documentation.",
+    "The database-driven MDM result reached joint equilibrium and passed the implemented convergence and health checks.",
+    "The work establishes a foundation for future BIM/IFC and GIS/PostGIS integration rather than claiming a complete commercial BIM-GIS platform."
+  ],
+  "recommendations": [
+    "The relational database framework should be extended from the current beam-based prototype to a complete building model including slabs, columns, footings, walls, openings, staircases, and other common building elements.",
+    "The structural analysis module should be expanded beyond the Moment Distribution Method to include additional load types, multi-span systems, frame action, column behavior, lateral load analysis, and design-code-based checks.",
+    "The estimation module should be extended to include formwork area, reinforcement quantity, masonry quantity, plastering, painting, flooring, excavation, PCC, RCC, and other BOQ-related work items.",
+    "The BIM component should be further developed through IFC mapping so that relational database elements can be connected with BIM objects and exported or exchanged with BIM-compatible software.",
+    "The GIS component should be implemented using PostGIS so that project location, municipal boundary, seismic zoning, soil classification, road access, and other spatial parameters can be connected with building design data.",
+    "Construction scheduling should be added as a future module. This should include construction activities, durations, predecessor-successor relationships, early start, early finish, late start, late finish, float, milestones, resources, and Critical Path Method analysis.",
+    "The prototype should be tested using a real building project from Pokhara to evaluate practical performance, data consistency, time efficiency, quantity accuracy, and workflow integration.",
+    "A user interface should be developed to allow engineers, architects, estimators, and project managers to interact with the database without directly writing SQL queries.",
+    "Future work should include security, role-based access control, audit trails, version history, approval workflow, and backup mechanisms so that the system can be used in real professional practice.",
+    "The developed framework should be compared with conventional manual workflows to quantify improvements in time, accuracy, consistency, and documentation quality."
+  ],
+  "future_scope": "The future scope of this study is broad because the implemented prototype represents only the foundation of a larger integrated AEC database ecosystem. The system can be expanded into a full cloud-based platform where BIM, GIS, structural analysis, estimation, scheduling, construction documentation, procurement, payments, vendors, and project history are connected through a single relational database. Future development can also include artificial intelligence-assisted query generation, automatic report writing, automated drawing extraction, code-compliance checking, municipal submission support, and dashboard-based project monitoring. With further development, the proposed framework can contribute to more transparent, consistent, and automated construction workflows in Nepal.",
+  "methodological_limitations": "The methodology is limited to the development and validation of a prototype database system. The current prototype does not yet represent a complete commercial BIM-GIS software platform. The structural analysis module is limited to a simplified Moment Distribution Method example and does not yet include advanced structural analysis, complete building-frame analysis, nonlinear analysis, or full design-code checking. The GIS component is addressed at the framework level and is intended for future extension using PostGIS and official spatial datasets. Similarly, the BIM component is addressed through relational element modeling and IFC-oriented data structure planning, while full IFC import and export are reserved for future development. Despite these limitations, the methodology provides a working foundation for integrated AEC data management and demonstrates how a normalized relational database can support automated workflow connections among structural analysis, architecture, estimation, method statements, specifications, and reporting.",
+  "truth_guardrails": [
+    "The system is deterministic and database-driven; it is not a machine-learning prediction model.",
+    "The Moment Distribution Method is the implemented structural validation method.",
+    "The prototype does not replace ETABS, SAP2000, Abaqus, or full finite-element analysis software.",
+    "BIM is implemented at the relational element-model and IFC-oriented planning level; full IFC import/export is future work.",
+    "GIS is addressed at framework level; full PostGIS and official spatial-data integration are future work.",
+    "The sample is a controlled two-span beam prototype, not a complete real building project.",
+    "The initial website should use static exported data and should not claim live Supabase connectivity."
+  ]
+}
