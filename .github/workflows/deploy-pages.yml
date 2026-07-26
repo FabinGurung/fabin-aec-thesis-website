@@ -1,4 +1,4 @@
-name: Build and deploy thesis website to GitHub Pages
+name: Validate Next.js thesis website for GitHub Pages
 
 on:
   push:
@@ -11,12 +11,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: github-pages
+  group: github-pages-nextjs-validation
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
@@ -25,8 +26,6 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24.14.0
-          cache: npm
-          cache-dependency-path: package-lock.json
 
       - name: Confirm exact Node.js and npm versions
         shell: bash
@@ -38,36 +37,44 @@ jobs:
         shell: bash
         run: |
           REPOSITORY_NAME="${GITHUB_REPOSITORY#*/}"
+
           if [[ "$REPOSITORY_NAME" == "${GITHUB_REPOSITORY_OWNER}.github.io" ]]; then
             BASE_PATH=""
           else
             BASE_PATH="/$REPOSITORY_NAME"
           fi
+
           echo "NEXT_PUBLIC_BASE_PATH=$BASE_PATH" >> "$GITHUB_ENV"
           echo "GitHub Pages base path: ${BASE_PATH:-/}"
 
-      - name: Install Next.js migration dependencies
-        run: npm install
+      - name: Install clean Next.js migration dependencies
+        shell: bash
+        run: |
+          rm -f package-lock.json
+          npm install
 
       - name: Verify source content, graph and security boundaries
         run: npm run test:pages
 
-      - name: Build static export
+      - name: Build Next.js static export
         env:
           GITHUB_PAGES: "true"
         run: npm run build
+
       - name: Inspect generated static files
         shell: bash
         run: |
           echo "============================================"
-          echo "Generated dist/client file structure"
+          echo "Generated out/ file structure"
           echo "============================================"
+
           find out -maxdepth 5 -type f -print | sort
 
           echo ""
           echo "============================================"
-          echo "Generated out/ file structure"
+          echo "Generated HTML files"
           echo "============================================"
+
           find out -type f -name "*.html" -print | sort
 
       - name: Verify generated GitHub Pages output
@@ -81,13 +88,7 @@ jobs:
         with:
           path: out
 
-#   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-#       - name: Deploy to GitHub Pages
-#         id: deployment
-#         uses: actions/deploy-pages@v4
+      # Deployment intentionally disabled during migration validation.
+      #
+      # Once all nine routes pass static-export validation,
+      # this job will be enabled.
