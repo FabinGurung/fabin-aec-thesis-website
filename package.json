@@ -1,6 +1,6 @@
 {
   "name": "fabin-aec-thesis-website-github-pages",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "type": "module",
   "packageManager": "npm@11.9.0",
@@ -9,10 +9,9 @@
     "npm": "11.9.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build --prerender-all",
-    "start": "vinext start --port 4173",
-    "preview": "vinext start --port 4173",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "typecheck": "tsc --noEmit",
     "verify": "node scripts/verify-content.mjs",
     "verify:security": "node scripts/verify-security.mjs",
@@ -20,25 +19,19 @@
     "manifest": "node scripts/generate-manifest.mjs",
     "verify:manifest": "node scripts/verify-manifest.mjs",
     "test:routes": "node scripts/test-routes.mjs",
-    "test": "npm run verify && npm run verify:security && npm run verify:manifest && npm run typecheck",
-    "test:portable": "npm run verify && npm run verify:security && npm run verify:portable && npm run verify:manifest && npm run typecheck",
     "verify:pages": "node scripts/verify-github-pages.mjs",
     "verify:pages-output": "node scripts/verify-pages-output.mjs",
     "test:pages": "npm run verify && npm run verify:security && npm run verify:pages && npm run typecheck"
   },
   "dependencies": {
+    "next": "16.2.11",
     "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "react-server-dom-webpack": "19.2.7",
-    "vinext": "1.0.0-beta.2"
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@types/node": "25.0.10",
     "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.3",
-    "@vitejs/plugin-rsc": "0.5.28",
-    "typescript": "7.0.2",
-    "vite": "8.1.5"
+    "typescript": "7.0.2"
   }
 }
