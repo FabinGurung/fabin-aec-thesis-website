@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vinext dev",
-    "build": "vinext build",
+    "build": "vinext build --prerender-all",
     "start": "vinext start --port 4173",
     "preview": "vinext start --port 4173",
     "typecheck": "tsc --noEmit",
