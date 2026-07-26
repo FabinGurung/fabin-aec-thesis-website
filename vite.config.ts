@@ -1,13 +1,18 @@
 import { defineConfig } from "vite";
 import vinext from "vinext";
+import nextConfig from "./next.config";
 
 /**
- * GitHub Pages build: all routes are prerendered and exported as static files.
- * No Cloudflare Worker, database binding, runtime server or secret is used.
+ * GitHub Pages build.
+ *
+ * Pass the existing Next-compatible configuration directly to Vinext so that
+ * output: "export", trailingSlash and the GitHub Pages basePath are applied
+ * during the static-export build.
  */
 export default defineConfig({
   plugins: [
     vinext({
+      nextConfig,
       prerender: { routes: "*" },
     }),
   ],
