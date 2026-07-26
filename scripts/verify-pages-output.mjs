@@ -3,11 +3,32 @@ import fs from "node:fs";
 import path from "node:path";
 
 const output = path.resolve("out");
-const basePath = (process.env.NEXT_PUBLIC_BASE_PATH ?? "").replace(/\/$/, "");
-const routes = ["", "research", "system", "prototype", "workflow", "evidence", "roadmap", "thesis", "graph"];
 
-assert.ok(fs.existsSync(output), "out must exist after the static build");
-assert.ok(fs.existsSync(path.join(output, ".nojekyll")), ".nojekyll must be copied into the Pages artifact");
+const basePath = (
+  process.env.NEXT_PUBLIC_BASE_PATH ?? ""
+).replace(/\/$/, "");
+
+const routes = [
+  "",
+  "research",
+  "system",
+  "prototype",
+  "workflow",
+  "evidence",
+  "roadmap",
+  "thesis",
+  "graph",
+];
+
+assert.ok(
+  fs.existsSync(output),
+  "out must exist after the static build",
+);
+
+assert.ok(
+  fs.existsSync(path.join(output, ".nojekyll")),
+  ".nojekyll must be copied into the Pages artifact",
+);
 
 function routeFile(route) {
   const candidates = route
