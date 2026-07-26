@@ -2,7 +2,7 @@ name: Build and deploy thesis website to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [github-pages-nextjs]
   workflow_dispatch:
 
 permissions:
@@ -46,8 +46,8 @@ jobs:
           echo "NEXT_PUBLIC_BASE_PATH=$BASE_PATH" >> "$GITHUB_ENV"
           echo "GitHub Pages base path: ${BASE_PATH:-/}"
 
-      - name: Install exact locked dependencies
-        run: npm ci
+      - name: Install Next.js migration dependencies
+        run: npm install
 
       - name: Verify source content, graph and security boundaries
         run: npm run test:pages
@@ -62,13 +62,13 @@ jobs:
           echo "============================================"
           echo "Generated dist/client file structure"
           echo "============================================"
-          find dist/client -maxdepth 5 -type f -print | sort
+          find out -maxdepth 5 -type f -print | sort
 
           echo ""
           echo "============================================"
-          echo "Generated HTML files"
+          echo "Generated out/ file structure"
           echo "============================================"
-          find dist/client -type f -name "*.html" -print | sort
+          find out -type f -name "*.html" -print | sort
 
       - name: Verify generated GitHub Pages output
         run: npm run verify:pages-output
@@ -79,15 +79,15 @@ jobs:
       - name: Upload static Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: dist/client
+          path: out
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+#   deploy:
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
+#     runs-on: ubuntu-latest
+#     needs: build
+#     steps:
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v4
