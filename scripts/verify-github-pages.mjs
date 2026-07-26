@@ -6,7 +6,6 @@ const pkg = JSON.parse(read("package.json"));
 const graph = JSON.parse(read("data/system_graph.json"));
 const workflow = read(".github/workflows/deploy-pages.yml");
 const nextConfig = read("next.config.ts");
-const viteConfig = read("vite.config.ts");
 const sourceFiles = [
   "components/site-path.ts",
   "components/ui.tsx",
@@ -26,6 +25,9 @@ for (const file of [
 
 assert.equal(pkg.engines.node, "24.14.0");
 assert.equal(pkg.engines.npm, "11.9.0");
+assert.equal(pkg.dependencies.next, "16.2.11");
+assert.equal("vinext" in pkg.dependencies, false);
+assert.equal(fs.existsSync("vite.config.ts"), false);
 const dependencyNames = Object.keys({ ...pkg.dependencies, ...pkg.devDependencies });
 assert.equal(dependencyNames.some((name) => /cloudflare|wrangler/i.test(name)), false, "GitHub Pages package must not retain Cloudflare or Wrangler dependencies");
 assert.equal(graph.system.nodes.length, 15);
@@ -34,14 +36,12 @@ assert.equal(graph.system.edges.length + graph.database.edges.length, 106);
 assert.match(nextConfig, /output:\s*["']export["']/);
 assert.match(nextConfig, /basePath/);
 assert.match(nextConfig, /trailingSlash:\s*true/);
-assert.match(viteConfig, /prerender:\s*\{\s*routes:\s*["']\*["']/);
-assert.doesNotMatch(viteConfig, /from ["']@cloudflare|from ["']@vinext\/cloudflare|\bcloudflare\s*\(|\bcdnAdapter\s*\(/i);
 assert.match(workflow, /actions\/checkout@v6/);
 assert.match(workflow, /actions\/setup-node@v6/);
 assert.match(workflow, /actions\/configure-pages@v5/);
 assert.match(workflow, /actions\/upload-pages-artifact@v4/);
 assert.match(workflow, /actions\/deploy-pages@v4/);
-assert.match(workflow, /path:\s*dist\/client/);
+assert.match(workflow, /path:\s*out/);
 assert.match(workflow, /node-version:\s*24\.14\.0/);
 assert.equal(fs.existsSync("wrangler.jsonc"), false, "GitHub Pages source must not include Wrangler configuration");
 
