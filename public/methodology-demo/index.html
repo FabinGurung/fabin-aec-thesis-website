@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Fabin Gurung's interactive MSc methodology demonstrator for normalized shared AEC data across Architecture, Engineering and Construction."
+    >
+    <meta name="theme-color" content="#102a43">
+    <title>Shared AEC Data Methodology · Fabin Gurung</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/graph.css">
+    <link rel="stylesheet" href="./css/model-viewer.css">
+    <link rel="stylesheet" href="./css/disciplines.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#overview" aria-label="Shared AEC Data Methodology home">
+          <span class="brand-mark" aria-hidden="true">FG</span>
+          <span>
+            <strong>Shared AEC Data</strong>
+            <small>Methodology demonstrator</small>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="#methodology">Methodology</a>
+          <a href="#model">Model</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#engineering">Engineering</a>
+          <a href="#construction">Construction</a>
+          <a href="#lineage">Lineage</a>
+          <a href="#scope">Scope</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section-shell" id="overview" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="overline">MSc Structural Engineering · Pokhara University</p>
+          <h1 id="hero-title">
+            One element.<br>
+            One shared record.<br>
+            <span>Multiple AEC workflows.</span>
+          </h1>
+          <p class="hero-lede">
+            This interactive research demonstrator stores project geometry, element
+            identity, structural properties and construction relationships once—then
+            reuses those records across Architecture, Engineering and Construction.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#methodology">Explore the shared model</a>
+            <a class="button secondary" href="#sandbox">Test change propagation</a>
+          </div>
+
+          <dl class="thesis-meta">
+            <div>
+              <dt>Researcher</dt>
+              <dd id="meta-student">—</dd>
+            </div>
+            <div>
+              <dt>Prototype</dt>
+              <dd>Deterministic · static · source-backed</dd>
+            </div>
+            <div>
+              <dt>Release</dt>
+              <dd id="meta-release">—</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero-record" aria-labelledby="hero-record-title">
+          <div class="record-heading">
+            <div>
+              <p class="overline">Canonical entity</p>
+              <h2 id="hero-record-title">Beam AB</h2>
+            </div>
+            <span class="status-badge verified">✓ Verified</span>
+          </div>
+
+          <div class="entity-key">
+            <span>ELEMENT_ID</span>
+            <strong id="hero-element-id">BEAM_AB</strong>
+          </div>
+
+          <dl class="record-grid" id="hero-record-grid" aria-live="polite"></dl>
+
+          <div class="record-path" aria-label="Shared workflow path">
+            <span class="path-node shared">Shared record</span>
+            <span class="path-arrow" aria-hidden="true">→</span>
+            <span class="path-node architecture">A</span>
+            <span class="path-node engineering">E</span>
+            <span class="path-node construction">C</span>
+          </div>
+        </aside>
+      </section>
+
+      <section class="evidence-strip" aria-label="Verified evidence summary">
+        <div class="section-shell evidence-grid" id="evidence-summary"></div>
+      </section>
+
+      <div class="selection-dock" aria-label="Active shared element">
+        <span>Active element</span>
+        <div class="segmented" role="group" aria-label="Select beam element">
+          <button type="button" data-select-entity="BEAM_AB" aria-pressed="true">Beam AB</button>
+          <button type="button" data-select-entity="BEAM_BC" aria-pressed="false">Beam BC</button>
+        </div>
+        <output id="selection-status" aria-live="polite">Beam AB selected across all views</output>
+      </div>
+
+      <section class="section-shell content-section" id="methodology" aria-labelledby="methodology-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">01 · Relational overview</p>
+            <h2 id="methodology-title">Follow one identity through the system</h2>
+          </div>
+          <p>
+            Global mode explains the full methodology. Local mode reveals the
+            selected entity’s verified neighborhood, one relationship depth at a time.
+          </p>
+        </div>
+
+        <div class="graph-workspace">
+          <article class="technical-panel graph-panel">
+            <div class="graph-toolbar" aria-label="Methodology graph controls">
+              <div class="control-cluster">
+                <span class="control-label">Mode</span>
+                <div class="segmented" role="group" aria-label="Graph mode">
+                  <button id="graph-global" type="button" aria-pressed="true">Global</button>
+                  <button id="graph-local" type="button" aria-pressed="false">Local</button>
+                </div>
+              </div>
+
+              <div class="control-cluster graph-depth-cluster">
+                <label class="control-label" for="graph-depth">Depth</label>
+                <select id="graph-depth">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+
+              <div class="control-cluster graph-search-cluster">
+                <label class="sr-only" for="graph-search">Search graph nodes</label>
+                <input
+                  id="graph-search"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="Search an entity…"
+                  list="graph-search-options"
+                >
+                <datalist id="graph-search-options"></datalist>
+              </div>
+
+              <div class="control-cluster icon-controls" aria-label="Graph camera">
+                <button id="graph-zoom-out" type="button" aria-label="Zoom out">−</button>
+                <button id="graph-zoom-in" type="button" aria-label="Zoom in">+</button>
+                <button id="graph-fit" type="button">Fit</button>
+                <button id="graph-reset" type="button">Reset</button>
+              </div>
+            </div>
+
+            <div class="graph-filter-row" id="graph-filters" role="group" aria-label="Filter graph categories"></div>
+
+            <div class="graph-canvas-wrap">
+              <svg
+                id="methodology-graph"
+                class="methodology-graph"
+                viewBox="0 0 1000 620"
+                role="group"
+                aria-labelledby="graph-title graph-desc"
+                tabindex="0"
+              >
+                <title id="graph-title">Shared AEC relational methodology graph</title>
+                <desc id="graph-desc">
+                  Interactive graph showing how one shared project and its beam elements
+                  connect to Architecture, Engineering and Construction outputs.
+                </desc>
+                <g id="graph-camera">
+                  <g id="graph-edges"></g>
+                  <g id="graph-nodes"></g>
+                </g>
+              </svg>
+              <p class="canvas-instruction">
+                Select a node for details. Drag empty space to pan; use the buttons for
+                equivalent zoom and fit controls.
+              </p>
+            </div>
+
+            <div class="graph-legend" aria-label="Graph legend">
+              <span><i class="legend-dot core"></i>Shared/core</span>
+              <span><i class="legend-dot architecture"></i>Architecture</span>
+              <span><i class="legend-dot engineering"></i>Engineering</span>
+              <span><i class="legend-dot construction"></i>Construction</span>
+              <span><i class="legend-line verified"></i>Selected path</span>
+            </div>
+          </article>
+
+          <aside class="technical-panel graph-inspector" aria-live="polite">
+            <p class="panel-kicker">Selected graph entity</p>
+            <h3 id="graph-inspector-title">Shared Element Hub</h3>
+            <p id="graph-inspector-description">—</p>
+            <dl class="mini-definition" id="graph-inspector-meta"></dl>
+            <h4>Direct relationships</h4>
+            <div id="graph-inspector-relations" class="relation-list"></div>
+            <button id="graph-open-section" class="text-button" type="button" hidden>
+              Open detailed view →
+            </button>
+          </aside>
+        </div>
+
+        <details class="accessible-fallback">
+          <summary>Text alternative: visible graph relationships</summary>
+          <p>
+            This list preserves every currently visible relationship without requiring
+            the interactive graphic.
+          </p>
+          <ol id="graph-relationship-fallback"></ol>
+        </details>
+      </section>
+
+      <section class="section-shell content-section" id="shared-record" aria-labelledby="shared-record-title">
+        <div class="section-heading compact">
+          <div>
+            <p class="overline">02 · Canonical record</p>
+            <h2 id="shared-record-title">Inspect what the selected element actually stores</h2>
+          </div>
+          <p>
+            Discipline views receive references to this entity and its linked records;
+            they do not keep independent copies of the displayed values.
+          </p>
+        </div>
+
+        <div class="inspector-layout">
+          <article class="technical-panel element-inspector">
+            <div class="record-heading">
+              <div>
+                <p class="panel-kicker">Active element</p>
+                <h3 id="element-title">Beam AB</h3>
+              </div>
+              <span id="element-status" class="status-badge verified">✓ Verified</span>
+            </div>
+            <dl class="property-table" id="element-properties"></dl>
+          </article>
+
+          <article class="technical-panel reuse-panel">
+            <p class="panel-kicker">Foreign-key-like references</p>
+            <h3>One identity, linked records</h3>
+            <div class="reference-stack" id="element-references"></div>
+            <div class="integrity-banner" id="integrity-banner" role="status"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell content-section" id="model" aria-labelledby="model-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">03 · Structural geometry viewer</p>
+            <h2 id="model-title">Distinct plan, elevation and isometric projections</h2>
+          </div>
+          <p>
+            The verified beam geometry is solid. Storey placement, Grid 2, columns,
+            transverse beams and slab remain visibly illustrative.
+          </p>
+        </div>
+
+        <article class="technical-panel model-panel">
+          <div class="model-toolbar">
+            <div class="control-cluster">
+              <span class="control-label">Projection</span>
+              <div class="segmented" role="group" aria-label="Model projection">
+                <button type="button" data-viewer-mode="plan" aria-pressed="true">Plan</button>
+                <button type="button" data-viewer-mode="elevation" aria-pressed="false">Elevation</button>
+                <button type="button" data-viewer-mode="iso" aria-pressed="false">3D Isometric</button>
+              </div>
+            </div>
+
+            <div class="control-cluster model-camera-controls" aria-label="Model camera controls">
+              <button type="button" data-camera="rotate-left" aria-label="Rotate left">↶</button>
+              <button type="button" data-camera="rotate-right" aria-label="Rotate right">↷</button>
+              <button type="button" data-camera="zoom-out" aria-label="Zoom out">−</button>
+              <button type="button" data-camera="zoom-in" aria-label="Zoom in">+</button>
+              <button type="button" data-camera="fit">Fit</button>
+            </div>
+          </div>
+
+          <div class="layer-toolbar" id="viewer-layers" aria-label="Model layers"></div>
+
+          <div class="model-workspace">
+            <div class="model-canvas-wrap">
+              <svg
+                id="structural-viewer"
+                class="structural-viewer"
+                viewBox="0 0 960 600"
+                role="group"
+                aria-labelledby="viewer-svg-title viewer-svg-desc"
+                tabindex="0"
+              >
+                <title id="viewer-svg-title">Data-driven structural geometry viewer</title>
+                <desc id="viewer-svg-desc">
+                  Selected projection of verified Beam AB and Beam BC with clearly
+                  marked illustrative building geometry.
+                </desc>
+                <g id="viewer-camera"></g>
+              </svg>
+              <div class="model-status-bar">
+                <span><i class="legend-line verified"></i>Verified element</span>
+                <span><i class="legend-line illustrative"></i>Illustrative extension</span>
+                <span id="viewer-status" aria-live="polite">Plan projection</span>
+              </div>
+            </div>
+
+            <aside class="model-sidebar">
+              <p class="panel-kicker">Current projection</p>
+              <h3 id="viewer-title">Plan</h3>
+              <p id="viewer-description">—</p>
+              <dl class="mini-definition" id="viewer-facts"></dl>
+
+              <label class="range-control" for="level-height">
+                <span>
+                  Illustrative level height
+                  <strong id="level-height-output">—</strong>
+                </span>
+                <input id="level-height" type="range" min="2.5" max="4" step="0.1">
+              </label>
+              <p class="field-note">Viewer setting only; it is not a thesis result.</p>
+            </aside>
+          </div>
+        </article>
+
+        <details class="accessible-fallback">
+          <summary>Text alternative: structural model geometry</summary>
+          <div id="viewer-text-alternative"></div>
+        </details>
+      </section>
+
+      <section class="section-shell content-section domain-section architecture-domain" id="architecture" aria-labelledby="architecture-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">A · Architecture</p>
+            <h2 id="architecture-title">Shared points become line and nodal geometry</h2>
+          </div>
+          <p>
+            Start and end references generate the plan. The same IDs populate the
+            schedule and respond to the global element selection.
+          </p>
+        </div>
+
+        <div class="discipline-grid">
+          <article class="technical-panel drawing-panel">
+            <div class="drawing-title">
+              <div>
+                <p>Architecture line view</p>
+                <strong>PROJECT_SAMPLE_MDM_001</strong>
+              </div>
+              <span class="status-badge verified">✓ Source-backed geometry</span>
+            </div>
+            <svg
+              id="architecture-plan"
+              class="architecture-plan"
+              viewBox="0 0 900 420"
+              role="img"
+              aria-labelledby="arch-svg-title arch-svg-desc"
+            >
+              <title id="arch-svg-title">Architecture plan generated from shared points</title>
+              <desc id="arch-svg-desc">
+                Point A, Point B and Point C connected by Beam AB and Beam BC.
+              </desc>
+            </svg>
+          </article>
+
+          <article class="technical-panel schedule-panel">
+            <p class="panel-kicker">Generated element schedule</p>
+            <h3>Architecture element schedule</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Element ID</th>
+                    <th scope="col">Start</th>
+                    <th scope="col">End</th>
+                    <th scope="col">Length</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="architecture-schedule"></tbody>
+              </table>
+            </div>
+            <p class="scope-note">
+              “Grid 1” is a viewer convention. The point coordinates and beam
+              connectivity are verified; no unsupported architectural room or building
+              plan is claimed.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell content-section domain-section engineering-domain" id="engineering" aria-labelledby="engineering-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">E · Engineering</p>
+            <h2 id="engineering-title">Deterministic MDM with traceable diagrams</h2>
+          </div>
+          <p>
+            Connectivity, length, EI, end conditions and loads feed a transparent
+            Moment Distribution Method workflow—not an AI prediction.
+          </p>
+        </div>
+
+        <div class="equation-flow" id="engineering-flow" aria-label="Engineering data flow"></div>
+
+        <div class="engineering-summary">
+          <article class="technical-panel">
+            <p class="panel-kicker">Verified member outputs</p>
+            <h3>Moments, reactions and equilibrium</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Member</th>
+                    <th scope="col">End moments</th>
+                    <th scope="col">Reactions</th>
+                    <th scope="col">Joint status</th>
+                  </tr>
+                </thead>
+                <tbody id="engineering-results"></tbody>
+              </table>
+            </div>
+            <div id="health-checks" class="health-grid"></div>
+          </article>
+
+          <article class="technical-panel">
+            <p class="panel-kicker">Source sequence</p>
+            <h3>Moment Distribution Method trace</h3>
+            <div id="mdm-trace" class="trace-list"></div>
+            <p class="scope-note">
+              The source sequence is preserved exactly. A missing Step 6 is not
+              invented.
+            </p>
+          </article>
+        </div>
+
+        <div class="diagram-heading">
+          <div>
+            <p class="panel-kicker">Active member diagrams</p>
+            <h3 id="diagram-member-title">Beam AB</h3>
+          </div>
+          <div class="diagram-convention">
+            <span>Moment: positive sagging / negative hogging</span>
+            <span>Shear: positive upward on the left cut</span>
+            <span>Values plotted positive upward</span>
+          </div>
+        </div>
+
+        <div class="diagram-grid">
+          <article class="technical-panel diagram-card">
+            <div class="diagram-card-heading">
+              <div><span>BMD</span><h4>Bending moment</h4></div>
+              <strong>kN·m</strong>
+            </div>
+            <svg id="bmd-chart" viewBox="0 0 640 300" role="img" aria-label="Bending moment diagram"></svg>
+            <p id="bmd-note"></p>
+          </article>
+          <article class="technical-panel diagram-card">
+            <div class="diagram-card-heading">
+              <div><span>SFD</span><h4>Shear force</h4></div>
+              <strong>kN</strong>
+            </div>
+            <svg id="sfd-chart" viewBox="0 0 640 300" role="img" aria-label="Shear force diagram"></svg>
+            <p id="sfd-note"></p>
+          </article>
+          <article class="technical-panel diagram-card">
+            <div class="diagram-card-heading">
+              <div><span>AFD</span><h4>Axial force</h4></div>
+              <strong>kN</strong>
+            </div>
+            <svg id="afd-chart" viewBox="0 0 640 300" role="img" aria-label="Axial force diagram"></svg>
+            <p id="afd-note"></p>
+          </article>
+        </div>
+        <div id="chart-tooltip" class="chart-tooltip" role="status" hidden></div>
+      </section>
+
+      <section class="section-shell content-section domain-section construction-domain" id="construction" aria-labelledby="construction-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">C · Construction</p>
+            <h2 id="construction-title">The same dimensions become quantity and delivery links</h2>
+          </div>
+          <p>
+            Concrete volume is calculated from shared geometry. Reinforcement and
+            formwork remain linked records without invented quantities.
+          </p>
+        </div>
+
+        <div class="quantity-summary" id="quantity-summary"></div>
+
+        <article class="technical-panel">
+          <div class="panel-heading-row">
+            <div>
+              <p class="panel-kicker">BOQ-like lineage</p>
+              <h3>Quantity and readiness status</h3>
+            </div>
+            <span id="construction-filter-label" class="active-filter">Showing Beam AB links</span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Element</th>
+                  <th scope="col">Work item</th>
+                  <th scope="col">Unit</th>
+                  <th scope="col">Basis / quantity</th>
+                  <th scope="col">Data status</th>
+                </tr>
+              </thead>
+              <tbody id="boq-table"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <div class="construction-detail-grid">
+          <article class="technical-panel">
+            <div class="panel-heading-row">
+              <div>
+                <p class="panel-kicker">Source-backed documents</p>
+                <h3>Method and specification</h3>
+              </div>
+              <div class="segmented" role="tablist" aria-label="Construction documents">
+                <button
+                  id="method-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="method-panel"
+                  tabindex="0"
+                >
+                  Method
+                </button>
+                <button
+                  id="spec-tab"
+                  type="button"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="spec-panel"
+                  tabindex="-1"
+                >
+                  Specification
+                </button>
+              </div>
+            </div>
+            <div id="method-panel" role="tabpanel" aria-labelledby="method-tab"></div>
+            <div id="spec-panel" role="tabpanel" aria-labelledby="spec-tab" hidden></div>
+          </article>
+
+          <article class="technical-panel">
+            <p class="panel-kicker">Illustrative downstream planning view</p>
+            <h3>Relationship sequence—no durations</h3>
+            <ol id="planning-sequence" class="planning-sequence"></ol>
+            <p class="scope-note">
+              Dependencies are demonstrative. They show future relational potential
+              toward CPM/Primavera-style planning and are not verified schedule results.
+            </p>
+          </article>
+        </div>
+
+        <div class="material-state-grid" id="material-state-grid"></div>
+      </section>
+
+      <section class="section-shell content-section" id="lineage" aria-labelledby="lineage-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">04 · Data lineage</p>
+            <h2 id="lineage-title">See exactly which field each view consumes</h2>
+          </div>
+          <p>
+            The selected entity remains the same object while each discipline reads
+            only the properties it needs.
+          </p>
+        </div>
+
+        <div class="lineage-layout">
+          <article class="technical-panel lineage-graphic-panel">
+            <svg
+              id="lineage-graphic"
+              class="lineage-graphic"
+              viewBox="0 0 900 520"
+              role="img"
+              aria-labelledby="lineage-svg-title lineage-svg-desc"
+            >
+              <title id="lineage-svg-title">Selected element data lineage</title>
+              <desc id="lineage-svg-desc">
+                Shared Beam AB data feeding Architecture, Engineering and Construction views.
+              </desc>
+            </svg>
+          </article>
+
+          <article class="technical-panel">
+            <p class="panel-kicker">Field consumption matrix</p>
+            <h3 id="lineage-table-title">Beam AB reuse map</h3>
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">View</th>
+                    <th scope="col">Shared fields consumed</th>
+                    <th scope="col">Output</th>
+                  </tr>
+                </thead>
+                <tbody id="lineage-table"></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="sandbox-section" id="sandbox" aria-labelledby="sandbox-title">
+        <div class="section-shell">
+          <div class="section-heading inverse">
+            <div>
+              <p class="overline">Demonstration sandbox</p>
+              <h2 id="sandbox-title">Change once. Watch dependent outputs update.</h2>
+            </div>
+            <p>
+              This temporary copy never alters the verified baseline. It exists only
+              to demonstrate propagation through the shared model.
+            </p>
+          </div>
+
+          <div class="sandbox-layout">
+            <div class="sandbox-controls">
+              <label for="sandbox-length">
+                Sandbox Beam AB length
+                <output id="sandbox-length-output">—</output>
+              </label>
+              <input id="sandbox-length" type="range" min="4" max="8" step="0.1">
+              <div class="sandbox-buttons">
+                <button id="sandbox-enable" class="button light" type="button">
+                  Enable sandbox
+                </button>
+                <button id="sandbox-reset" class="button ghost-light" type="button">
+                  Reset verified baseline
+                </button>
+              </div>
+              <p id="sandbox-status" role="status">
+                Verified baseline is active.
+              </p>
+            </div>
+
+            <div class="propagation-grid" id="propagation-grid"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell content-section" id="scope" aria-labelledby="scope-title">
+        <div class="section-heading">
+          <div>
+            <p class="overline">05 · Evidence boundary</p>
+            <h2 id="scope-title">Verified results and illustrative extensions stay separate</h2>
+          </div>
+          <p>
+            Transparency is part of the methodology. Every important numerical field
+            carries a provenance status.
+          </p>
+        </div>
+
+        <div class="scope-grid">
+          <article class="scope-card verified-scope">
+            <span class="status-badge verified">✓ Verified</span>
+            <h3>Supplied prototype evidence</h3>
+            <ul id="verified-scope-list"></ul>
+          </article>
+          <article class="scope-card derived-scope">
+            <span class="status-badge derived">ƒ Derived from verified inputs</span>
+            <h3>Deterministic calculations</h3>
+            <ul id="derived-scope-list"></ul>
+          </article>
+          <article class="scope-card illustrative-scope">
+            <span class="status-badge illustrative">◇ Illustrative</span>
+            <h3>Methodology extensions</h3>
+            <ul id="illustrative-scope-list"></ul>
+          </article>
+        </div>
+
+        <article class="scope-statement">
+          <h3>BIM and GIS boundary</h3>
+          <p>
+            The implemented prototype uses relational element modeling and
+            IFC-oriented concepts as a framework. Full IFC import/export, PostGIS
+            integration and verified project mapping remain future work. No map is
+            fabricated because the supplied prototype contains no verified site
+            coordinate.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-shell footer-grid">
+        <div>
+          <strong>Fabin Gurung</strong>
+          <p>MSc Structural Engineering · Pokhara University</p>
+        </div>
+        <div>
+          <strong>Research demonstrator</strong>
+          <p>
+            A static, deterministic proof-of-concept for relational AEC data reuse.
+          </p>
+        </div>
+        <div>
+          <strong>Public scope</strong>
+          <p>No backend, credentials, private dashboard data or live database connection.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./data/provenance.js" defer></script>
+    <script src="./data/aec-model.js" defer></script>
+    <script src="./js/data-access.js" defer></script>
+    <script src="./js/store.js" defer></script>
+    <script src="./js/integrity.js" defer></script>
+    <script src="./js/graph.js" defer></script>
+    <script src="./js/model-viewer.js" defer></script>
+    <script src="./js/architecture.js" defer></script>
+    <script src="./js/engineering.js" defer></script>
+    <script src="./js/construction.js" defer></script>
+    <script src="./js/lineage.js" defer></script>
+    <script src="./js/sandbox.js" defer></script>
+    <script src="./js/app.js" defer></script>
+  </body>
+</html>

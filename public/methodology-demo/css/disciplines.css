@@ -1,0 +1,1046 @@
+.domain-section {
+  position: relative;
+}
+
+.domain-section::before {
+  position: absolute;
+  top: 84px;
+  bottom: 84px;
+  left: -18px;
+  width: 4px;
+  content: "";
+}
+
+.architecture-domain::before {
+  background: var(--architecture);
+}
+
+.engineering-domain::before {
+  background: var(--engineering);
+}
+
+.construction-domain::before {
+  background: var(--construction);
+}
+
+.discipline-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(560px, 0.95fr);
+  gap: 14px;
+}
+
+.drawing-panel {
+  overflow: hidden;
+}
+
+.drawing-title {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--ink-200);
+  background: var(--ink-050);
+}
+
+.drawing-title p,
+.drawing-title strong {
+  display: block;
+  margin-bottom: 0;
+}
+
+.drawing-title p {
+  color: var(--ink-800);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.drawing-title strong {
+  margin-top: 3px;
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.architecture-plan {
+  width: 100%;
+  min-height: 420px;
+  background:
+    linear-gradient(rgb(29 95 147 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(29 95 147 / 0.045) 1px, transparent 1px),
+    var(--white);
+  background-size: 20px 20px;
+}
+
+.architecture-grid line {
+  stroke: #94a8b7;
+  stroke-dasharray: 5 5;
+  stroke-width: 1;
+}
+
+.architecture-grid text {
+  fill: var(--illustrative);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.architecture-element {
+  cursor: pointer;
+}
+
+.architecture-element line {
+  stroke: var(--architecture);
+  stroke-linecap: round;
+  stroke-width: 8;
+}
+
+.architecture-element.selected line {
+  stroke: var(--selected);
+  stroke-width: 12;
+  filter: drop-shadow(0 0 4px rgb(178 43 70 / 0.3));
+}
+
+.architecture-element:focus line {
+  stroke: #d57900;
+  stroke-width: 13;
+}
+
+.architecture-element text {
+  fill: var(--ink-950);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 850;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 5px;
+}
+
+.architecture-element .architecture-section-label {
+  fill: var(--ink-600);
+  font-size: 8px;
+}
+
+.architecture-node circle {
+  fill: var(--white);
+  stroke: var(--architecture);
+  stroke-width: 3;
+}
+
+.architecture-node text {
+  fill: var(--ink-950);
+  font-size: 9px;
+  font-weight: 850;
+}
+
+.architecture-node .architecture-coordinate {
+  fill: var(--ink-700);
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 4px;
+}
+
+.architecture-dimensions line {
+  fill: var(--architecture);
+  stroke: var(--ink-600);
+  stroke-width: 1;
+}
+
+.architecture-dimensions marker path {
+  fill: var(--ink-600);
+}
+
+.architecture-dimensions text {
+  fill: var(--ink-700);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.architecture-note rect {
+  fill: rgb(255 255 255 / 0.92);
+  stroke: var(--ink-300);
+}
+
+.architecture-note text {
+  fill: var(--ink-700);
+  font-size: 8.5px;
+}
+
+.schedule-panel {
+  min-width: 0;
+  padding: 22px;
+}
+
+.schedule-panel h3 {
+  margin-bottom: 16px;
+}
+
+.equation-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.equation-flow > i {
+  display: grid;
+  flex: 0 0 18px;
+  place-items: center;
+  color: var(--ink-400, #93a4b1);
+  font-style: normal;
+}
+
+.flow-stage {
+  min-width: 0;
+  flex: 1 1 0;
+  padding: 14px;
+  border: 1px solid var(--ink-200);
+  border-top: 3px solid var(--engineering);
+  background: var(--white);
+}
+
+.flow-stage > span,
+.flow-stage > strong,
+.flow-stage > small {
+  display: block;
+}
+
+.flow-stage > span {
+  color: var(--engineering);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 850;
+}
+
+.flow-stage > strong {
+  margin-top: 7px;
+  color: var(--ink-900);
+  font-size: 0.8rem;
+}
+
+.flow-stage > small {
+  margin-top: 6px;
+  color: var(--ink-600);
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+
+.engineering-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
+  gap: 14px;
+}
+
+.engineering-summary > article {
+  min-width: 0;
+  padding: 22px;
+}
+
+.engineering-summary h3 {
+  margin-bottom: 16px;
+}
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin-top: 14px;
+}
+
+.health-item {
+  display: grid;
+  min-width: 0;
+  min-height: 92px;
+  align-content: start;
+  padding: 10px;
+  border: 1px solid var(--ink-200);
+  background: var(--ink-050);
+}
+
+.health-item > span {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--white);
+  background: var(--verified);
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.health-item.failed > span {
+  background: var(--danger);
+}
+
+.health-item small {
+  margin-top: 9px;
+  color: var(--ink-600);
+  font-size: 0.58rem;
+  line-height: 1.25;
+}
+
+.health-item strong {
+  margin-top: 3px;
+  overflow: hidden;
+  color: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-overflow: ellipsis;
+}
+
+.trace-list {
+  display: grid;
+  gap: 6px;
+}
+
+.trace-list details {
+  border: 1px solid var(--ink-200);
+  border-radius: 3px;
+}
+
+.trace-list summary {
+  display: grid;
+  min-height: 46px;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 9px;
+  list-style: none;
+}
+
+.trace-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.trace-step {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 2px;
+  color: var(--white);
+  background: var(--engineering);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.trace-list summary strong,
+.trace-list summary small {
+  display: block;
+}
+
+.trace-list summary strong {
+  color: var(--ink-900);
+  font-size: 0.76rem;
+}
+
+.trace-list summary small {
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+.trace-detail {
+  padding: 10px 11px 12px 50px;
+  border-top: 1px solid var(--ink-200);
+  background: var(--ink-050);
+}
+
+.trace-detail p {
+  margin-bottom: 7px;
+  font-size: 0.72rem;
+}
+
+.trace-detail code {
+  display: inline-block;
+}
+
+.diagram-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  margin: 34px 0 12px;
+}
+
+.diagram-heading h3 {
+  margin-bottom: 0;
+  font-family: var(--font-mono);
+  font-size: 1.16rem;
+}
+
+.diagram-convention {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.diagram-convention span {
+  padding: 4px 7px;
+  border: 1px solid var(--ink-200);
+  border-radius: 3px;
+  color: var(--ink-600);
+  background: var(--ink-050);
+  font-size: 0.61rem;
+}
+
+.diagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.diagram-card {
+  min-width: 0;
+  padding: 16px;
+}
+
+.diagram-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.diagram-card-heading span {
+  display: block;
+  color: var(--engineering);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.diagram-card-heading h4 {
+  margin: 2px 0 0;
+  font-size: 0.88rem;
+}
+
+.diagram-card-heading > strong {
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+.diagram-card svg {
+  width: 100%;
+  min-height: 250px;
+  overflow: visible;
+}
+
+.diagram-grid-lines line {
+  stroke: var(--ink-200);
+  stroke-width: 1;
+}
+
+.diagram-grid-lines text {
+  fill: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.diagram-zero-line {
+  stroke: var(--ink-800);
+  stroke-width: 1.5;
+}
+
+.diagram-area {
+  opacity: 0.14;
+}
+
+.diagram-area.bmd {
+  fill: var(--engineering);
+}
+
+.diagram-area.sfd {
+  fill: var(--construction);
+}
+
+.diagram-area.afd {
+  fill: var(--architecture);
+}
+
+.diagram-area.sandbox {
+  fill: #d57900;
+}
+
+.diagram-line {
+  fill: none;
+  stroke-width: 3.2;
+}
+
+.diagram-line.bmd {
+  stroke: var(--engineering);
+}
+
+.diagram-line.sfd {
+  stroke: var(--construction);
+}
+
+.diagram-line.afd {
+  stroke: var(--architecture);
+}
+
+.diagram-line.sandbox {
+  stroke: #d57900;
+  stroke-dasharray: 7 4;
+}
+
+.diagram-probe {
+  fill: var(--white);
+  stroke: var(--ink-700);
+  stroke-width: 1.4;
+  opacity: 0.12;
+  cursor: crosshair;
+}
+
+.diagram-probe:hover,
+.diagram-probe:focus {
+  fill: #f2a44a;
+  stroke: var(--ink-950);
+  opacity: 1;
+  outline: 0;
+}
+
+.diagram-value-labels text {
+  fill: var(--ink-900);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-width: 4px;
+}
+
+.diagram-critical-line {
+  stroke: var(--derived);
+  stroke-dasharray: 4 3;
+  stroke-width: 1.2;
+}
+
+.diagram-card > p {
+  display: grid;
+  gap: 7px;
+  min-height: 86px;
+  margin: 7px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--ink-200);
+  font-size: 0.69rem;
+}
+
+.diagram-card > p code {
+  width: fit-content;
+}
+
+.chart-tooltip {
+  position: fixed;
+  z-index: 200;
+  display: grid;
+  width: 176px;
+  gap: 2px;
+  padding: 9px 10px;
+  border: 1px solid var(--ink-300);
+  border-radius: 3px;
+  color: var(--white);
+  background: rgb(16 36 55 / 0.96);
+  box-shadow: var(--shadow-md);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  pointer-events: none;
+}
+
+.chart-tooltip[hidden] {
+  display: none;
+}
+
+.chart-tooltip strong {
+  color: #ffd29c;
+}
+
+.quantity-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.quantity-card {
+  min-width: 0;
+  min-height: 158px;
+  padding: 18px;
+  border: 1px solid var(--ink-200);
+  border-top: 4px solid var(--construction);
+  background: var(--white);
+}
+
+.quantity-card small,
+.quantity-card strong,
+.quantity-card span,
+.quantity-card em {
+  display: block;
+}
+
+.quantity-card small {
+  color: var(--ink-500);
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.quantity-card strong {
+  margin-top: 9px;
+  color: var(--ink-950);
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 2.3vw, 1.85rem);
+  letter-spacing: -0.04em;
+}
+
+.quantity-card span {
+  margin-top: 5px;
+  color: var(--ink-700);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.quantity-card em {
+  margin-top: 11px;
+  color: var(--construction);
+  font-size: 0.62rem;
+  font-style: normal;
+  font-weight: 750;
+}
+
+#construction > .technical-panel {
+  padding: 22px;
+}
+
+.panel-heading-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.panel-heading-row h3 {
+  margin-bottom: 0;
+}
+
+.active-filter {
+  padding: 5px 8px;
+  border: 1px solid #e3b98d;
+  border-radius: 3px;
+  color: var(--construction);
+  background: var(--construction-soft);
+  font-size: 0.65rem;
+  font-weight: 750;
+}
+
+.construction-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(310px, 0.75fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.construction-detail-grid > article {
+  min-width: 0;
+  padding: 22px;
+}
+
+.document-summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 14px;
+  padding: 14px;
+  border-left: 3px solid var(--construction);
+  background: var(--construction-soft);
+}
+
+.document-summary span {
+  color: var(--ink-600);
+  font-size: 0.65rem;
+}
+
+.document-summary h4 {
+  margin: 5px 0 4px;
+  font-size: 0.91rem;
+}
+
+.document-summary p {
+  margin: 0;
+  font-size: 0.7rem;
+}
+
+.document-list {
+  display: grid;
+  gap: 5px;
+}
+
+.document-list details {
+  border: 1px solid var(--ink-200);
+}
+
+.document-list summary {
+  display: grid;
+  min-height: 44px;
+  grid-template-columns: 27px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 9px;
+  list-style: none;
+}
+
+.document-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.document-list summary > span {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 2px;
+  color: var(--white);
+  background: var(--construction);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.document-list summary strong {
+  font-size: 0.73rem;
+}
+
+.document-list summary small {
+  color: var(--ink-500);
+  font-size: 0.6rem;
+}
+
+.document-list details > div {
+  padding: 10px 12px 12px 45px;
+  border-top: 1px solid var(--ink-200);
+  background: var(--ink-050);
+}
+
+.document-list details p {
+  margin-bottom: 7px;
+  font-size: 0.7rem;
+}
+
+.document-list details p:last-child {
+  margin-bottom: 0;
+}
+
+.planning-sequence {
+  position: relative;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.planning-sequence::before {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 9px;
+  width: 1px;
+  background: var(--ink-300);
+  content: "";
+}
+
+.planning-sequence li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  min-height: 58px;
+  padding: 7px 0;
+}
+
+.planning-sequence li > span {
+  z-index: 1;
+  display: block;
+  width: 19px;
+  height: 19px;
+  border: 4px solid var(--white);
+  border-radius: 50%;
+  background: var(--construction);
+  box-shadow: 0 0 0 1px var(--construction);
+}
+
+.planning-sequence strong,
+.planning-sequence small {
+  display: block;
+}
+
+.planning-sequence strong {
+  color: var(--ink-900);
+  font-size: 0.73rem;
+}
+
+.planning-sequence small {
+  margin-top: 3px;
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+}
+
+.material-state-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.material-state-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 160px;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: start;
+  gap: 13px;
+  padding: 17px;
+  border: 1px solid var(--ink-200);
+  background: var(--white);
+}
+
+.material-state-card > .status-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.material-state-card h3 {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.material-state-card p {
+  margin-bottom: 4px;
+  font-size: 0.7rem;
+}
+
+.material-state-card small {
+  color: var(--ink-500);
+  font-size: 0.62rem;
+}
+
+.material-symbol {
+  position: relative;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid var(--ink-300);
+  background: var(--ink-050);
+}
+
+.material-symbol.concrete span {
+  width: 29px;
+  height: 21px;
+  transform: skewX(-8deg);
+  background: #8e9ca6;
+  box-shadow: 5px -5px #c3ccd2;
+}
+
+.material-symbol.rebar span,
+.material-symbol.rebar::before,
+.material-symbol.rebar::after {
+  width: 35px;
+  height: 3px;
+  background: #964137;
+  content: "";
+}
+
+.material-symbol.rebar::before,
+.material-symbol.rebar::after {
+  position: absolute;
+}
+
+.material-symbol.rebar::before {
+  transform: translateY(-9px);
+}
+
+.material-symbol.rebar::after {
+  transform: translateY(9px);
+}
+
+.material-symbol.formwork span {
+  width: 33px;
+  height: 30px;
+  border: 4px solid #b67832;
+  background: #e4b579;
+}
+
+.material-symbol.documents span {
+  width: 27px;
+  height: 34px;
+  border: 2px solid var(--derived);
+  background:
+    linear-gradient(var(--derived) 0 0) 6px 9px / 15px 2px no-repeat,
+    linear-gradient(var(--derived) 0 0) 6px 16px / 15px 2px no-repeat,
+    linear-gradient(var(--derived) 0 0) 6px 23px / 11px 2px no-repeat,
+    var(--white);
+}
+
+.lineage-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 14px;
+}
+
+.lineage-graphic-panel {
+  overflow: hidden;
+}
+
+.lineage-graphic {
+  width: 100%;
+  min-height: 520px;
+  background:
+    radial-gradient(circle at 1px 1px, rgb(84 112 135 / 0.18) 1px, transparent 1.1px),
+    var(--white);
+  background-size: 20px 20px;
+}
+
+.lineage-layout > article:last-child {
+  min-width: 0;
+  padding: 22px;
+}
+
+.lineage-central rect {
+  fill: var(--ink-050);
+  stroke: var(--shared);
+  stroke-width: 2.5;
+}
+
+.lineage-kicker {
+  fill: var(--ink-500);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.lineage-title {
+  fill: var(--shared);
+  font-family: var(--font-mono);
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.lineage-detail {
+  fill: var(--ink-700);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.lineage-path {
+  fill: none;
+  stroke-width: 2.7;
+}
+
+.lineage-path.architecture {
+  stroke: var(--architecture);
+}
+
+.lineage-path.engineering {
+  stroke: var(--engineering);
+}
+
+.lineage-path.construction {
+  stroke: var(--construction);
+}
+
+#lineage-arrow path {
+  fill: var(--ink-600);
+}
+
+.lineage-edge-label {
+  fill: var(--ink-700);
+  font-size: 8.5px;
+  font-weight: 750;
+  paint-order: stroke;
+  stroke: var(--white);
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
+.lineage-domain rect {
+  stroke-width: 2;
+}
+
+.lineage-domain.architecture rect {
+  fill: var(--architecture-soft);
+  stroke: var(--architecture);
+}
+
+.lineage-domain.engineering rect {
+  fill: var(--engineering-soft);
+  stroke: var(--engineering);
+}
+
+.lineage-domain.construction rect {
+  fill: var(--construction-soft);
+  stroke: var(--construction);
+}
+
+.lineage-domain-title {
+  fill: var(--ink-950);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.lineage-domain-sub {
+  fill: var(--ink-700);
+  font-size: 9.5px;
+}
+
+.lineage-domain-count {
+  fill: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+}
+
+.lineage-status rect {
+  fill: var(--verified-soft);
+  stroke: #a8cec8;
+}
+
+.lineage-status text {
+  fill: var(--verified);
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.lineage-status .lineage-status-sub {
+  fill: var(--ink-600);
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.field-token-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.field-token-list code {
+  display: inline-block;
+  font-size: 0.65rem;
+}
