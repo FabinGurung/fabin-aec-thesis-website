@@ -9,6 +9,7 @@ const navItems = [
   ["/system", "Database System"],
   ["/prototype", "Structural Prototype"],
   ["/workflow", "Shared-Data Reuse"],
+  ["/methodology-demo/", "Methodology Demo"],
   ["/graph", "System Graph"],
   ["/evidence", "Evidence"],
   ["/roadmap", "Roadmap"],
