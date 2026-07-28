@@ -100,7 +100,7 @@ assert.match(graphPage, /not a graph database/);
 assert.match(graphPage, /not\s+connected live to Supabase/);
 const mobileNavigation = fs.readFileSync(path.join(root, "components/mobile-navigation.tsx"), "utf8");
 assert.equal(mobileNavigation.includes('["/graph", "System Graph"]'), true);
-assert.equal((mobileNavigation.match(/\["\/[^"]*", "[^"]+"\]/g) ?? []).length, 9);
+assert.equal((mobileNavigation.match(/\["\/[^"]*", "[^"]+"\]/g) ?? []).length, 10);
 assert.equal(mobileNavigation.includes("SWIPE FOR / USE ARROW KEYS"), false);
 assert.equal(mobileNavigation.includes("Swipe or use arrow keys"), false);
 assert.match(mobileNavigation, /has-overflow-right/);
