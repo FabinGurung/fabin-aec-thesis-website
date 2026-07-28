@@ -14,6 +14,7 @@ const routeCards = [
   ["/system", "Database System", "Normalized schema, shared hub and implementation boundary"],
   ["/prototype", "Structural Prototype", "A-B-C beam, MDM trace, results, BMD and SFD"],
   ["/workflow", "Shared-Data Reuse", "Architecture lines, quantities and construction documents"],
+  ["/methodology-demo/", "Methodology Demo", "Interactive shared-data AEC methodology demonstrator"],
   ["/evidence", "Implementation Evidence", "Public-safe evidence images and QA disclosures"],
   ["/roadmap", "Limitations & Future", "What remains framework-level or future work"],
   ["/thesis", "Thesis Details", "Academic metadata, abstract and cited references"],
