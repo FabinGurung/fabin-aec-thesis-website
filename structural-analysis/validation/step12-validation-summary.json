@@ -1,0 +1,36 @@
+{
+  "release_basis": "STEP12_SOLVER_AND_CROSS_VALIDATION_FREEZE_v1.0",
+  "status": "PASS_WITH_DOCUMENTED_NONBLOCKING_LIMITATION",
+  "validated_batches": 5,
+  "required_batches": 5,
+  "results": {
+    "MDM": {
+      "cases": "2/2 core cases PASS",
+      "MDM01_max_end_moment_difference_kNm": 0.0075546324616144744,
+      "MDM01_max_joint_residual_kNm": 0.007814214128280206,
+      "tolerance_kNm": 0.01,
+      "MDM02_max_end_moment_difference_kNm": 0.0,
+      "MDM02_max_reaction_difference": 0.0
+    },
+    "DSF01": {
+      "translation_max_difference_mm": 2.1458390619955026e-12,
+      "rotation_max_difference_rad": 5.447031714567174e-16,
+      "reaction_force_max_difference_N": 6.359186954796314e-09,
+      "reaction_moment_max_difference_Nmm": 7.361173629760742e-06
+    },
+    "FLOOR01": {
+      "loading1_end_moment_max_difference_ft_kip": 0.042162970212828554,
+      "table9_hand_EFM_max_difference_ft_kip": 0.0061
+    },
+    "LC01": {
+      "max_absolute_difference": 0.0,
+      "tolerance": 1e-09
+    },
+    "SEIS01": {
+      "derived_microbenchmark_max_absolute_difference": 0.0,
+      "external_comparison_max_percent_difference": 0.34222895875200676,
+      "external_envelope_percent": 0.5
+    }
+  },
+  "independent_qa": "PASS_ALL_FIVE_BATCHES"
+}

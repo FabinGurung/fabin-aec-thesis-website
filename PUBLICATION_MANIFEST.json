@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0",
+  "release": "AEC_STRUCTURAL_SOLVER_PAGES_v0.1.0",
+  "target_repository": "FabinGurung/fabin-aec-thesis-website",
+  "target_branch": "structural-analysis-solver-v0.1",
+  "branch_mode": "NEW_ORPHAN_BRANCH",
+  "pages_entrypoint": "index.html",
+  "source_frozen_solver_zip_sha256": "64a1d5de056ac17860399ed434e16c0ca5ea05737ae82deb62c7458619822792",
+  "source_manifest_sha256": "2b476750afe7fa05f0e3dfa3b2fb6eceaf54f156e86a97aadd74a3d6ac39add6",
+  "file_count": 42,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "404.html",
+      "bytes": 214,
+      "sha256": "76b80d370a101afc871c0a9c746394b9cdf156872e91f42dc02b9b244c1f1a1d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1163,
+      "sha256": "a2654cf101d439cd2f8c4e02f50253a288efb5a850a35fae5adcb62665828b9d"
+    },
+    {
+      "path": "assets/app.js",
+      "bytes": 4641,
+      "sha256": "4661b12700892add9aa59afc673606129659d188575a7a62532390b788e8af0a"
+    },
+    {
+      "path": "assets/styles.css",
+      "bytes": 4991,
+      "sha256": "db27ff370985bd8d1fe1c410d41d10dfff7b06c14edb66a6098e91fae99f9ee1"
+    },
+    {
+      "path": "data/known-discrepancies.json",
+      "bytes": 336,
+      "sha256": "10f45ccf6acbe21272b48c41efbecadee03e4010336a33f717f968024e77ba1f"
+    },
+    {
+      "path": "data/step12-validation-summary.json",
+      "bytes": 1260,
+      "sha256": "c6a30267f4655e9d3a39ca0d1561aa4a03f8f064cb9aeb3d8b49c113a6dd8833"
+    },
+    {
+      "path": "data/validation-summary.json",
+      "bytes": 931,
+      "sha256": "346b6a54147a5a97164bd9ce9c581ecc92f62067141522ff4b851cd00cab2abe"
+    },
+    {
+      "path": "docs/PAGES_DEPLOYMENT.md",
+      "bytes": 796,
+      "sha256": "541a94d2863872fe66c005a657ad9995805a69cd80c9972c372583490639f046"
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "bytes": 972,
+      "sha256": "620489d815f8965b9eace810c0ccfef7dbc25544f70303b87915c61d913f1467"
+    },
+    {
+      "path": "docs/PUBLICATION_BOUNDARY.md",
+      "bytes": 563,
+      "sha256": "ce36bc39a210c1d53d0385429b09489ab628b7a9f67fa534127231b9e56b0fd0"
+    },
+    {
+      "path": "docs/RESEARCH_USE_NOTICE.md",
+      "bytes": 442,
+      "sha256": "5bdfefaef66c912ff2e3289015e8bd4271d56dbd6bc59dad57e621666bf52dcb"
+    },
+    {
+      "path": "docs/VALIDATED_SCOPE.md",
+      "bytes": 1029,
+      "sha256": "e1c84d23714341b0e74688e325b2aacc7429b42254390e65ce62bf831482062d"
+    },
+    {
+      "path": "index.html",
+      "bytes": 10031,
+      "sha256": "90a8ce5e76341682e89050ffed466023aa62a967ca288bd5d0a077b0ad9380cc"
+    },
+    {
+      "path": "solver/direct-stiffness.js",
+      "bytes": 3889,
+      "sha256": "e4d0f073eadb86fd45e2a4f9cba0d53bc9e09dadfd5189ca341529820fdd02f0"
+    },
+    {
+      "path": "solver/floor-efm.js",
+      "bytes": 2840,
+      "sha256": "e8e26c1764713ce3d8aaa32c1da9a172ed1513c08a4a9fc438ed4608e7dbc9ef"
+    },
+    {
+      "path": "solver/load-combinations.js",
+      "bytes": 1981,
+      "sha256": "ea217133b6b44467350f36c50ca479920107f213a8a11b8561c63092d34b929c"
+    },
+    {
+      "path": "solver/matrix.js",
+      "bytes": 1682,
+      "sha256": "dc7a4e7d5a1c0fb77f8832ff4d289803cfbeaa43ad24c183af4aca327c7cf5cb"
+    },
+    {
+      "path": "solver/mdm.js",
+      "bytes": 2243,
+      "sha256": "4d770ef94bcffc3ed7f892fad388a82249cfdb19cfb11f675a731ee2a98c6e78"
+    },
+    {
+      "path": "solver/presets.js",
+      "bytes": 1064,
+      "sha256": "d21fb7bd25dab947f0c41ce5d272e382cdfc8e735f0e260f9981e30d5f299561"
+    },
+    {
+      "path": "solver/response-spectrum.js",
+      "bytes": 993,
+      "sha256": "d337caccd6fa0683ebe5fcaf9180886c88ff7fad24dd12830ebc5de5b7565ad4"
+    },
+    {
+      "path": "structural-analysis/.gitignore",
+      "bytes": 70,
+      "sha256": "976e972bb345803ca6a5be74da83bd99156a3e206fbbff28f1e36c5fbdb3ecf0"
+    },
+    {
+      "path": "structural-analysis/README.md",
+      "bytes": 2955,
+      "sha256": "d4b10e79caf05abdce1b113c2eb9567e0028c60191a2bb2d6cac6604372cfdc3"
+    },
+    {
+      "path": "structural-analysis/docs/PROVENANCE.md",
+      "bytes": 972,
+      "sha256": "620489d815f8965b9eace810c0ccfef7dbc25544f70303b87915c61d913f1467"
+    },
+    {
+      "path": "structural-analysis/docs/PUBLICATION_BOUNDARY.md",
+      "bytes": 563,
+      "sha256": "ce36bc39a210c1d53d0385429b09489ab628b7a9f67fa534127231b9e56b0fd0"
+    },
+    {
+      "path": "structural-analysis/docs/RESEARCH_USE_NOTICE.md",
+      "bytes": 442,
+      "sha256": "5bdfefaef66c912ff2e3289015e8bd4271d56dbd6bc59dad57e621666bf52dcb"
+    },
+    {
+      "path": "structural-analysis/docs/VALIDATED_SCOPE.md",
+      "bytes": 1029,
+      "sha256": "e1c84d23714341b0e74688e325b2aacc7429b42254390e65ce62bf831482062d"
+    },
+    {
+      "path": "structural-analysis/pyproject.toml",
+      "bytes": 528,
+      "sha256": "eb82ad08a15257096636f4b959ef4bf80075152226cbcd59daf0ccc0eea0660f"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/__init__.py",
+      "bytes": 1010,
+      "sha256": "c5c9c8294560a2edb5f16d8b0a6c5321d5056e83ad0afd233a7bfeafbcad69da"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/direct_stiffness.py",
+      "bytes": 4982,
+      "sha256": "e62d849b07d52e2a5f4335c9df2ea910909b2e9f19d5f1d1b38f00d50bcd6d74"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/floor_efm.py",
+      "bytes": 3147,
+      "sha256": "3e51e5f3ac02e039e0eb325f7f77d56d6fbd619a1d64666a379efbcdc46ed596"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/load_combinations.py",
+      "bytes": 2583,
+      "sha256": "e3c00fc2e7a5b3c8ce916eb458e00de48cf5ab69a728510be8fb7670c7c9fca1"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/mdm.py",
+      "bytes": 3903,
+      "sha256": "cffaafa42bec056cf969e6b524dc92f070557d5f75a842c3b7fabb2c61c96bb6"
+    },
+    {
+      "path": "structural-analysis/src/aec_structural_validation/response_spectrum.py",
+      "bytes": 1344,
+      "sha256": "031546174b73b447757ec7ee9481cac2dcc2c1aa4faa4f9b71ad70b38210d07f"
+    },
+    {
+      "path": "structural-analysis/tests/test_direct_stiffness.py",
+      "bytes": 1274,
+      "sha256": "5ba40af9a538a4c9ad287262326fcf0a7b6f4f893a05176fdd655f0ebb130bf1"
+    },
+    {
+      "path": "structural-analysis/tests/test_floor_efm.py",
+      "bytes": 724,
+      "sha256": "e854ab26fe936ab35af7b55e0f713bfc1d2cb8e5fde180b5568117a5aa95e9f8"
+    },
+    {
+      "path": "structural-analysis/tests/test_load_combinations.py",
+      "bytes": 720,
+      "sha256": "066395883ae85d686b3cbd37442cf0b3aaf591f73978b6183f43ddb4fa8656cf"
+    },
+    {
+      "path": "structural-analysis/tests/test_mdm.py",
+      "bytes": 1875,
+      "sha256": "b36ebca8f465d940b28626addaa3db6ef2045ad0e39430fe25c1427b59d4e1e7"
+    },
+    {
+      "path": "structural-analysis/tests/test_response_spectrum.py",
+      "bytes": 662,
+      "sha256": "d77f970d4dd602264a3250e69b1713368547129c502af78b4286be98491739a5"
+    },
+    {
+      "path": "structural-analysis/validation/known-discrepancies.json",
+      "bytes": 336,
+      "sha256": "10f45ccf6acbe21272b48c41efbecadee03e4010336a33f717f968024e77ba1f"
+    },
+    {
+      "path": "structural-analysis/validation/step12-validation-summary.json",
+      "bytes": 1260,
+      "sha256": "c6a30267f4655e9d3a39ca0d1561aa4a03f8f064cb9aeb3d8b49c113a6dd8833"
+    },
+    {
+      "path": "tests/solver-regression.mjs",
+      "bytes": 2788,
+      "sha256": "8d5185f923e8d45f54961fe43ed0b944d3085d526a71ac0dc16befbea4c89f92"
+    }
+  ],
+  "qa": {
+    "browser_regression": "PASS",
+    "python_pytest": "7/7 PASS",
+    "javascript_syntax": "PASS",
+    "local_link_integrity": "PASS",
+    "public_safety_scan": "PASS"
+  },
+  "constraints": [
+    "Do not mutate main or structural-analysis-demo-v1",
+    "Create target branch as new orphan branch only",
+    "Copy exact frozen payload bytes only",
+    "No force push",
+    "Run browser regression and Python pytest before push",
+    "Independent GitHub readback required before Pages promotion"
+  ]
+}

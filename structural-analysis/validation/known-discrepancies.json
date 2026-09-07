@@ -1,0 +1,9 @@
+{
+  "open": [
+    {
+      "id": "DISC-STEP12A-MDM02-BMD-001",
+      "status": "OPEN_DOCUMENTED_NONBLOCKING",
+      "effect": "Excludes the claim that the printed MDM-02 10.0 midpoint figure label is independently validated as the final total BMD ordinate. Core MDM end moments, equilibrium, and reactions remain validated."
+    }
+  ]
+}
