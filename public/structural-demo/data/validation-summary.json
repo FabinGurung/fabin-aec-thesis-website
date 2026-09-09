@@ -1,0 +1,26 @@
+{
+  "release": "solver-pages-v0.1.0",
+  "source_solver_release": "Step12 frozen solver suite / Step13 public-safe Python package v0.1.0",
+  "validated_scope": [
+    "transparent moment distribution against MDM-01 and MDM-02",
+    "first-order linear-elastic 2D Euler-Bernoulli direct stiffness against DSF-01",
+    "FLOOR-01 hand equivalent-frame-method reproduction helpers",
+    "LC-01 deterministic load-combination enumeration",
+    "SEIS-01 global base-shear scaling and orthogonal SRSS post-processing"
+  ],
+  "browser_regression": {
+    "mdm": "PASS",
+    "direct_stiffness": "PASS",
+    "floor_efm": "PASS",
+    "load_combinations": "PASS",
+    "response_spectrum": "PASS"
+  },
+  "not_claimed": [
+    "general shell finite elements",
+    "unrestricted 3D analysis",
+    "eigen/modal extraction or within-direction CQC",
+    "nonlinear analysis",
+    "independent spSlab rerun",
+    "ETABS-equivalent building solver"
+  ]
+}

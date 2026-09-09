@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Public-safe, client-side structural analysis solver demonstrator for the Fabin AEC thesis project." />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>AEC Structural Solver — Validated Research Demo</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <div class="brand">AEC Structural Solver · integrated v0.1.0</div>
+    <div class="navlinks"><a href="../">← Thesis website</a>
+      <a href="#mdm">MDM</a><a href="#dsf">Direct stiffness</a><a href="#lc">Load combinations</a><a href="#seis">Seismic</a><a href="#floor">Floor EFM</a><a href="#validation">Validation</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Fabin AEC Thesis · structural analysis demonstrator</p>
+      <h1>Traceable structural calculations in the browser.</h1>
+      <p>This static JAMstack app runs entirely client-side on GitHub Pages. It exposes only the source-backed, Step-12 validated solver envelope. No server, database, private Drive source, token, or proprietary reference document is required at runtime.</p>
+      <div class="badges"><span class="badge good">5 validated capability families</span><span class="badge">Static export</span><span class="badge">No backend</span><span class="badge">Public-safe derivative</span></div>
+    </div>
+    <aside class="hero-card">
+      <span class="eyebrow">Validation boundary</span>
+      <strong>Step 12 frozen</strong>
+      <p>MDM · 2D direct stiffness · FLOOR-01 helpers · LC-01 combinations · SEIS-01 scaling/SRSS.</p>
+      <div class="notice">Research demonstrator only. This is not an ETABS replacement, general 3D solver, nonlinear engine, shell FE package, or design-code checking suite.</div>
+    </aside>
+  </section>
+
+  <section id="mdm" class="section">
+    <div class="section-head"><div><p class="eyebrow">MDM-01</p><h2>Moment Distribution Method</h2></div><p>Sequential joint balancing with explicit distribution factors, carry-over rules and trace output.</p></div>
+    <div class="grid"><div class="card span-5"><div class="field-grid"><label>Distribution cycles<input id="mdmCycles" type="number" value="3" min="1" step="1"></label></div><div class="actions"><button id="runMdm">Run governed preset</button></div><div class="kpi-grid result"><div class="kpi"><span>Max joint residual</span><strong id="mdmResidual">—</strong></div><div class="kpi"><span>M_AB</span><strong id="mdmAB">—</strong></div><div class="kpi"><span>M_DG</span><strong id="mdmDG">—</strong></div></div></div><div class="card span-7 result"><h3>Auditable result + trace</h3><pre id="mdmOutput"></pre></div></div>
+  </section>
+
+  <section id="dsf" class="section">
+    <div class="section-head"><div><p class="eyebrow">DSF-01</p><h2>2D Direct Stiffness</h2></div><p>First-order linear elastic Euler-Bernoulli frame solver for nodal loads and fixed/free ux, uy, rz DOFs.</p></div>
+    <div class="grid"><div class="card span-5"><div class="field-grid"><label>Node C Fx<input id="dsfFx" type="number" value="10000"></label><label>Node C Fy<input id="dsfFy" type="number" value="-20000"></label><label>E<input id="dsfE" type="number" value="200000"></label><label>A<input id="dsfA" type="number" value="10000"></label><label>I<input id="dsfI" type="number" value="100000000"></label></div><div class="actions"><button id="runDsf">Solve L-frame</button></div><div class="kpi-grid result"><div class="kpi"><span>B ux</span><strong id="dsfBx">—</strong></div><div class="kpi"><span>C uy</span><strong id="dsfCy">—</strong></div><div class="kpi"><span>A reaction Mz</span><strong id="dsfRz">—</strong></div></div></div><div class="card span-7 result"><h3>Displacements, reactions and element forces</h3><pre id="dsfOutput"></pre></div></div>
+  </section>
+
+  <section id="lc" class="section">
+    <div class="section-head"><div><p class="eyebrow">LC-01</p><h2>Load Combination Enumerator</h2></div><p>Deterministic limited combination family implemented from the validated LC-01 scope.</p></div>
+    <div class="grid"><div class="card span-5"><div class="field-grid"><label>DL<input id="lcDL" type="number" value="100"></label><label>LL<input id="lcLL" type="number" value="50"></label><label>Ex<input id="lcEx" type="number" value="20"></label><label>Ey<input id="lcEy" type="number" value="10"></label><label>Z<input id="lcZ" type="number" step="0.05" value="0.30"></label><label>Sso<input id="lcSso" type="number" value="10"></label><label>Usage<select id="lcUsage"><option value="other">Other</option><option value="storage">Storage</option></select></label><label>Additional load<select id="lcAdditional"><option value="snow">Snow</option><option value="none">None</option></select></label></div><div class="actions"><button id="runLc">Generate combinations</button></div><div class="kpi-grid result"><div class="kpi"><span>λ</span><strong id="lcLambda">—</strong></div><div class="kpi"><span>1.2DL + 1.5LL</span><strong id="lcMain">—</strong></div><div class="kpi"><span>Vertical DL coeff.</span><strong id="lcVertical">—</strong></div></div></div><div class="card span-7 result"><h3>Enumerated results</h3><pre id="lcOutput"></pre></div></div>
+  </section>
+
+  <section id="seis" class="section">
+    <div class="section-head"><div><p class="eyebrow">SEIS-01</p><h2>Response-Spectrum Post-processing</h2></div><p>Global base-shear scaling and orthogonal SRSS only; no eigensolution, modal extraction or within-direction CQC.</p></div>
+    <div class="grid"><div class="card span-5"><div class="field-grid"><label>Design base shear<input id="seisDesign" type="number" value="300"></label><label>Minimum dynamic shear<input id="seisMin" type="number" value="75"></label><label>Major V<input id="seisMajorV" type="number" value="75"></label><label>Major M<input id="seisMajorM" type="number" value="4000"></label><label>Minor V<input id="seisMinorV" type="number" value="80"></label><label>Minor M<input id="seisMinorM" type="number" value="4500"></label><label>Orthogonal component X<input id="seisSx" type="number" value="120"></label><label>Orthogonal component Y<input id="seisSy" type="number" value="50"></label></div><div class="actions"><button id="runSeis">Scale + combine</button></div><div class="kpi-grid result"><div class="kpi"><span>Scale factor</span><strong id="seisFactor">—</strong></div><div class="kpi"><span>Scaled major V</span><strong id="seisMajorScaled">—</strong></div><div class="kpi"><span>SRSS</span><strong id="seisSrss">—</strong></div></div></div><div class="card span-7 result"><h3>Post-processing output</h3><pre id="seisOutput"></pre></div></div>
+  </section>
+
+  <section id="floor" class="section">
+    <div class="section-head"><div><p class="eyebrow">FLOOR-01</p><h2>Equivalent-Frame Hand Helpers</h2></div><p>Narrow hand-calculation reproduction utilities. They do not constitute a shell finite-element solver or independent spSlab reproduction.</p></div>
+    <div class="grid"><div class="card span-5"><div class="field-grid"><label>w (klf)<input id="floorW" type="number" value="2"></label><label>L (ft)<input id="floorL" type="number" value="20"></label><label>Left negative moment<input id="floorML" type="number" value="30"></label><label>Right negative moment<input id="floorMR" type="number" value="20"></label><label>Face offset (ft)<input id="floorOffset" type="number" value="0.75"></label><label>Factored moment<input id="floorMoment" type="number" value="100"></label><label>Column strip %<input id="floorColumnPct" type="number" value="60"></label><label>Beam share<input id="floorBeamShare" type="number" step="0.05" value="0.85"></label></div><div class="actions"><button id="runFloor">Run helper calculations</button></div><div class="kpi-grid result"><div class="kpi"><span>M+</span><strong id="floorMplus">—</strong></div><div class="kpi"><span>V left</span><strong id="floorVL">—</strong></div><div class="kpi"><span>Beam strip moment</span><strong id="floorBeam">—</strong></div></div></div><div class="card span-7 result"><h3>FLOOR-01 helper output</h3><pre id="floorOutput"></pre></div></div>
+  </section>
+
+  <section id="validation" class="section">
+    <div class="section-head"><div><p class="eyebrow">Regression evidence</p><h2>Browser implementation checked against frozen solver benchmarks</h2></div><p>The JavaScript runtime mirrors the public-safe Python algorithms in this same branch and is regression-tested before publication.</p></div>
+    <div class="card span-12 table-wrap"><table><thead><tr><th>Capability</th><th>Benchmark</th><th>Browser regression</th><th>Boundary</th></tr></thead><tbody>
+      <tr><td>Moment distribution</td><td>MDM-01 / MDM-02</td><td class="status-pass">PASS</td><td>Explicit factors/order/cycles/carry-over only</td></tr>
+      <tr><td>Direct stiffness</td><td>DSF-01</td><td class="status-pass">PASS</td><td>2D linear elastic Euler-Bernoulli, nodal loads</td></tr>
+      <tr><td>Floor EFM helpers</td><td>FLOOR-01</td><td class="status-pass">PASS</td><td>Hand-reproduction helpers, not shell FE</td></tr>
+      <tr><td>Load combinations</td><td>LC-01</td><td class="status-pass">PASS</td><td>Validated limited family only</td></tr>
+      <tr><td>Response-spectrum post-processing</td><td>SEIS-01</td><td class="status-pass">PASS</td><td>Scaling + orthogonal SRSS only</td></tr>
+    </tbody></table></div>
+    <p class="small">See <a href="./docs/VALIDATED_SCOPE.md">validated scope</a>, <a href="./docs/PROVENANCE.md">provenance</a>, <a href="./docs/PUBLICATION_BOUNDARY.md">publication boundary</a>, and <a href="./data/step12-validation-summary.json">Step-12 validation summary</a>.</p>
+  </section>
+</main>
+<footer>Fabin AEC Thesis — integrated structural-analysis research demonstrator. All computations run locally in the visitor's browser.</footer>
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>

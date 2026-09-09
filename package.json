@@ -21,7 +21,8 @@
     "test:routes": "node scripts/test-routes.mjs",
     "verify:pages": "node scripts/verify-github-pages.mjs",
     "verify:pages-output": "node scripts/verify-pages-output.mjs",
-    "test:pages": "npm run verify && npm run verify:security && npm run verify:pages && npm run typecheck"
+    "verify:structural-demo": "node scripts/verify-structural-demo.mjs",
+    "test:pages": "npm run verify && npm run verify:security && npm run verify:pages && npm run verify:structural-demo && npm run typecheck"
   },
   "dependencies": {
     "next": "16.2.11",

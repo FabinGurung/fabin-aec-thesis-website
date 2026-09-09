@@ -10,6 +10,7 @@ const navItems = [
   ["/prototype", "Structural Prototype"],
   ["/workflow", "Shared-Data Reuse"],
   ["/methodology-demo/", "Methodology Demo"],
+  ["/structural-demo/", "Structural Solver"],
   ["/graph", "System Graph"],
   ["/evidence", "Evidence"],
   ["/roadmap", "Roadmap"],

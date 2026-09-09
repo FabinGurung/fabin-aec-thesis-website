@@ -15,6 +15,7 @@ const routeCards = [
   ["/prototype", "Structural Prototype", "A-B-C beam, MDM trace, results, BMD and SFD"],
   ["/workflow", "Shared-Data Reuse", "Architecture lines, quantities and construction documents"],
   ["/methodology-demo/", "Methodology Demo", "Interactive shared-data AEC methodology demonstrator"],
+  ["/structural-demo/", "Structural Solver", "Validated browser solver for MDM, direct stiffness, floor EFM, load combinations and seismic post-processing"],
   ["/evidence", "Implementation Evidence", "Public-safe evidence images and QA disclosures"],
   ["/roadmap", "Limitations & Future", "What remains framework-level or future work"],
   ["/thesis", "Thesis Details", "Academic metadata, abstract and cited references"],
@@ -159,7 +160,7 @@ export default function OverviewPage() {
       <section className="section section-navy">
         <SectionHeading
           kicker="Explore the thesis"
-          title="Eight focused routes, one evidence chain"
+          title="Nine focused routes, one evidence chain"
           text="Move from the research problem to the implemented prototype, verified evidence and clearly bounded future scope."
         />
         <div className="route-grid">
